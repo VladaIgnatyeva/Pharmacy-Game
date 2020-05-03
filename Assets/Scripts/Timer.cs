@@ -10,8 +10,10 @@ using UnityEngine.Audio;
 public class Timer : MonoBehaviour
 {
     public SpriteRenderer _sprite = null;
+    public GameObject threeDObject;
+    public GameObject tools;
     public float Speed = 1f;
-    public static float timer = 360;//360
+    public static float timer = 5;//360
     public GameObject contentPanel;
     public GameObject TextPanel;
     public Animator ScorePanel;
@@ -130,6 +132,8 @@ public class Timer : MonoBehaviour
             color.a += Speed * Time.deltaTime;
             color.a = Mathf.Clamp(color.a, 0, 1);
             _sprite.color = color;
+            threeDObject.SetActive(true);
+            tools.SetActive(false);
             if (color.a == 1) cho = 2;
 
             provM = 0;
@@ -154,12 +158,16 @@ public class Timer : MonoBehaviour
             if (color.a > 0) color.a -= 0.05f;
             _sprite.color = color;
             if (color.a <= 0) cho = 5;
+            threeDObject.SetActive(false);
+            tools.SetActive(true);
         }
         if (cho == 5)
         {
             var color = _sprite.color;
             color.a = 0.0f;
             _sprite.color = color;
+            threeDObject.SetActive(false);
+            tools.SetActive(true);
             timerEnd = DateTime.Now.AddSeconds(timer);
             cho = 0;
             kogo = 0;
@@ -174,6 +182,8 @@ public class Timer : MonoBehaviour
             color.a += Speed * Time.deltaTime;
             color.a = Mathf.Clamp(color.a, 0, 1);
             _sprite.color = color;
+            threeDObject.SetActive(true);
+            tools.SetActive(false);
         }
     }
 
@@ -221,6 +231,8 @@ public class Timer : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         color.a = 1;
         _sprite.color = color;
+        threeDObject.SetActive(true);
+        tools.SetActive(false);
     }
 
     bool panelvkl = false;

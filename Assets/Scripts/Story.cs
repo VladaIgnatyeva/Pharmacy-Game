@@ -60,6 +60,8 @@ public class Story : MonoBehaviour
         if (DnevnikVopros) JIR();
         //Timer.provDen = 11;
         //gameObject.GetComponent<Timer>().hp.value = 100;
+        PlayerPrefs.SetInt("Day", Timer.provDen);
+        PlayerPrefs.Save();
         switch (Timer.provDen)
         {
             case 1:
@@ -73,6 +75,7 @@ public class Story : MonoBehaviour
                 PartBiletSpisock.gameObject.SetActive(false);
                 KakoiDen.text = "Day 1:";
                 KakoiText.text = "\t\tWelcome to your new job!\nYou will work as a pharmacist in this state pharmacy.\nBy order of the government dated 07/05/1979, you must sell drugs to people, referring to the allowed dosage.\nIf the client indicates the wrong dosage, you must refuse him.\nHave a good day!";
+                
                 break;
             case 2:
                 Move.skokrazoshibsa2 = 0;

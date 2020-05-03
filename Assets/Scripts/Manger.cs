@@ -15,12 +15,18 @@ public class Manger : MonoBehaviour
 
     void Start()
     {
-        
+        if (PlayerPrefs.HasKey("Day"))
+        {
+            Timer.provDen = PlayerPrefs.GetInt("Day");
+        }
+        else
+        {
+            Timer.provDen = 1;
+        }
     }
 
     public void Story()
     {
-        Timer.provDen = 1;//1
         Timer.Den = 1;
         Move.skokrazoshibsa = 0;
         DontDestroy.Mon = 0;

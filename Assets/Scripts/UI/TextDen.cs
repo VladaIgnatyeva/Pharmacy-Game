@@ -24,7 +24,7 @@ public class TextDen : MonoBehaviour
         OtlDen.text = "Order medicine: 3$ for 1 medicines"; 
         PerHP.text = Timer.zavotdeneg1 + "%";
         PerZV.text = Timer.zavotdeneg2 + "%";
-        Rashodi.text = "Daily Expenses: " + (Timer.zavotdeneg + 10) + "$";
+        Rashodi.text = "Expenses: " + (Timer.zavotdeneg + 10) + "$";
         if (DontDestroy.Mon >= 0) OstatoDeneg.text = "Remaining money: " + DontDestroy.Mon + "$";
         else OstatoDeneg.text = "You are in debt: " + (DontDestroy.Mon * -1) + "$";
     }
